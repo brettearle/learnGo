@@ -5,15 +5,29 @@ import "testing"
 func TestHello(t *testing.T) {
 	t.Run("hello with name argument return Hello, name",
 		func(t *testing.T) {
-			got := Hello("Brett")
+			got := Hello("Brett", "")
 			want := "Hello, Brett"
 			assertCorrectMessage(t, got, want)
 		})
 
 	t.Run("called empty returns Hello World",
 		func(t *testing.T) {
-			got := Hello("")
+			got := Hello("", "")
 			want := "Hello, world"
+			assertCorrectMessage(t, got, want)
+		})
+
+	t.Run("called with spanish as prefix returns Hola....",
+		func(t *testing.T) {
+			got := Hello("Brett", "spanish")
+			want := "Hola, Brett"
+			assertCorrectMessage(t, got, want)
+		})
+
+	t.Run("called with french as prefix returns Bonjour....",
+		func(t *testing.T) {
+			got := Hello("Brett", "french")
+			want := "Bonjour, Brett"
 			assertCorrectMessage(t, got, want)
 		})
 }
