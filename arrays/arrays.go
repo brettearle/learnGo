@@ -1,20 +1,19 @@
 package arrays
 
-func Sum(numbers [5]int) int {
+func Sum(numbers []int) int {
 	sum := 0
 
 	for _, number := range numbers {
 		sum += number
 	}
-
 	return sum
 }
 
-func SumSlice(numbers []int) int {
-	sum := 0
+func SumAll(numberSlicesToSum ...[]int) []int {
+	var sums []int
 
-	for _, number := range numbers {
-		sum += number
+	for _, numbers := range numberSlicesToSum {
+		sums = append(sums, Sum(numbers))
 	}
-	return sum
+	return sums
 }
