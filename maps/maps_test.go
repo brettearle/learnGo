@@ -35,8 +35,18 @@ func TestAdd(t *testing.T) {
 		err := dictionary.Add(key, value)
 		assertError(t, err, ErrEntryExistsAlready)
 		assertDefinition(t, dictionary, key, value)
-
 	})
+}
+
+func TestDelete(t *testing.T) {
+	key := "test"
+	value := "to be deleted"
+	dictionary := Dictionary{key: value}
+	dictionary.Delete(key)
+	_, err := dictionary.Search(key)
+	if err != ErrNotFound {
+		t.Errorf("expected %q to be deleted", key)
+	}
 }
 
 func TestUpdate(t *testing.T) {
