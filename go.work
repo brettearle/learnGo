@@ -1,11 +1,13 @@
 go 1.20
 
 use (
-./hello
-./integers
-./iteration
-./arrays
-./structs
-./pointers_errors
-./maps
+    ./service
+	./arrays
+	./dependency_injection
+	./hello
+	./integers
+	./iteration
+	./maps
+	./pointers_errors
+	./structs
 )
