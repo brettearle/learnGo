@@ -10,4 +10,5 @@ use (
 	./maps
 	./pointers_errors
 	./structs
+	./mocking
 )
